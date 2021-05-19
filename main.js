@@ -6143,7 +6143,7 @@ Game.Launch=function()
 			
 			if (Game.TickerN%2==0 || Game.cookiesEarned>=10100000000)
 			{
-				var animals=['newts','penguins','scorpions','axolotls','puffins','porpoises','blowfish','horses','crayfish','slugs','humpback whales','nurse sharks','giant squids','polar bears','fruit bats','frogs','sea squirts','velvet worms','mole rats','paramecia','nematodes','tardigrades','giraffes','monkfish','wolfmen','goblins','hippies'];
+				var animals=['newts','penguins','scorpions','axolotls','puffins','porpoises','blowfish','horses','crayfish','slugs','humpback whales','nurse sharks','giant squids','polar bears','fruit bats','frogs','sea squirts','velvet worms','mole rats','paramecia','nematodes','tardigrades','giraffes','monkfish','wolfmen','goblins','hippies', 'clones'];
 				
 				if (Math.random()<0.75 || Game.cookiesEarned<10000)
 				{
@@ -6182,7 +6182,8 @@ Game.Launch=function()
 					'<q>We will rise again.</q><sig>grandma</sig>',
 					'<q>A mere setback.</q><sig>grandma</sig>',
 					'<q>We are not satiated.</q><sig>grandma</sig>',
-					'<q>Too late.</q><sig>grandma</sig>'
+					'<q>Too late.</q><sig>grandma</sig>',
+					'<q>Not enough.</q><sig>grandma</sig>'
 					]));
 					
 					if (Game.Objects['Farm'].amount>0) list.push(choose([
@@ -6405,7 +6406,7 @@ Game.Launch=function()
 				
 				if (Game.cookiesEarned>=10000) list.push(
 				'News : '+choose([
-					'cookies found to '+choose(['increase lifespan','sensibly increase intelligence','reverse aging','decrease hair loss','prevent arthritis','cure blindness'])+' in '+choose(animals)+'!',
+					'cookies found to '+choose(['increase lifespan','sensibly increase intelligence','reverse aging','decrease hair loss','prevent arthritis','cure blindness', 'help people create better memes'])+' in '+choose(animals)+'!',
 					'cookies found to make '+choose(animals)+' '+choose(['more docile','more handsome','nicer','less hungry','more pragmatic','tastier'])+'!',
 					'cookies tested on '+choose(animals)+', found to have no ill effects.',
 					'cookies unexpectedly popular among '+choose(animals)+'!',
@@ -6445,12 +6446,13 @@ Game.Launch=function()
 					'News : what makes cookies taste so right? "Probably all the [*****] they put in them", says anonymous tipper.',
 					'News : man found allergic to cookies; "what a weirdo", says family.',
 					'News : foreign politician involved in cookie-smuggling scandal.',
+					'News : cookie party is discussed as a political party',
 					'News : cookies now more popular than '+choose(['cough drops','broccoli','smoked herring','cheese','video games','stable jobs','relationships','time travel','cat videos','tango','fashion','television','nuclear warfare','whatever it is we ate before','politics','oxygen','lamps'])+', says study.',
 					'News : obesity epidemic strikes nation; experts blame '+choose(['twerking','that darn rap music','video-games','lack of cookies','mysterious ghostly entities','aliens','parents','schools','comic-books','cookie-snorting fad'])+'.',
 					'News : cookie shortage strikes town, people forced to eat cupcakes; "just not the same", concedes mayor.',
 					'News : "you gotta admit, all this cookie stuff is a bit ominous", says confused idiot.',
-					//'News : scientists advise getting used to cookies suffusing every aspect of life; "this is the new normal", expert says.',
-					//'News : doctors advise against wearing face masks when going outside. "You never know when you might need a cookie... a mask would just get in the way."',//these were written back when covid hadn't really done much damage yet but they just feel in poor taste now
+					'News : scientists advise getting used to cookies suffusing every aspect of life; "this is the new normal", expert says.',
+					'News : doctors advise against wearing face masks when going outside. "You never know when you might need a cookie... a mask would just get in the way."',//these were written back when covid hadn't really done much damage yet but they just feel in poor taste now
 					'News : is there life on Mars? Various chocolate bar manufacturers currently under investigation for bacterial contaminants.',
 					'News : "so I guess that\'s a thing now", scientist comments on cookie particles now present in virtually all steel manufactured since cookie production ramped up worldwide.',
 					'News : trace amounts of cookie particles detected in most living creatures, some of which adapting them as part of new and exotic metabolic processes.',
@@ -6533,6 +6535,8 @@ Game.Launch=function()
 				else if (Game.cookiesEarned<10000000000000) list.push('Your cookies are rewriting the fundamental laws of the universe.');
 				else if (Game.cookiesEarned<10000000000000) list.push('A local news station runs a 10-minute segment about your cookies. Success!<br><span style="font-size:50%;">(you win a cookie)</span>');
 				else if (Game.cookiesEarned<10100000000000) list.push('it\'s time to stop playing');//only show this for 100 millions (it's funny for a moment)
+				else if (Game.cookiesEarned<100000000000000) list.push('Transcendental cookie gods come down to taste your cookies.');
+				else if (Game.cookiesEarned<1000000000000000) list.push('"What are we going to do with all of these cookies?"<sig>anonymous</sig>');
 			}
 			
 			//if (Game.elderWrath>0 && (Game.pledges==0 || Math.random()<0.2))
@@ -6558,7 +6562,8 @@ Game.Launch=function()
 					'News : wrinkled "flesh tendrils" visible from space!',
 					'News : remains of "old ladies" found frozen in the middle of growing fleshy structures!', 
 					'News : all hope lost as writhing mass of flesh and dough engulfs whole city!',
-					'News : nightmare continues as wrinkled acres of flesh expand at alarming speeds!'
+					'News : nightmare continues as wrinkled acres of flesh expand at alarming speeds!',
+					'News : all grandmothers have turned into horrifying creatures!'
 				]));
 			}
 			
@@ -14471,19 +14476,15 @@ window.onload=function()
 	
 	if (!Game.ready)
 	{
-		if (top!=self) Game.ErrorFrame();
-		else
-		{
-			console.log('[=== '+choose([
-				'Oh, hello!',
-				'hey, how\'s it hangin',
-				'About to cheat in some cookies or just checking for bugs?',
-				'Remember : cheated cookies taste awful!',
-				'Hey, Orteil here. Cheated cookies taste awful... or do they?',
-			])+' ===]');
-			Game.Load();
-			//try {Game.Load();}
-			//catch(err) {console.log('ERROR : '+err.message);}
-		}
+		console.log('[=== '+choose([
+			'thanks for playing :)',
+			'cheated cookies taste awful...',
+			'just here to cheat?',
+			'hello :)',
+			'enjoy your time here!',
+		])+' ===]');
+		Game.Load();
+		//try {Game.Load();}
+		//catch(err) {console.log('ERROR : '+err.message);}
 	}
 };
